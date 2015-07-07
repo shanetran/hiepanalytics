@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
   end
 
   def create
+    Rails.logger.debug"---------#{params[:buy_day]}"
     if Product.new(product_params).save
       redirect_to root_path
     else
@@ -16,6 +17,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :quantity)
+    params.require(:product).permit(:name, :quantity, :buy_day)
   end
 end
