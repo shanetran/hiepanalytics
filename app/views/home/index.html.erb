@@ -1,15 +1,5 @@
 <h1>Hello Index</h1>
-<% @products.each do |product| %>
-<p>
-	Name: <%= product.name %>
+<p class="p-link">
+	<%= link_to "New product", new_product_path, class: "a-link" %>
 </p>
-<p>Buy Day: <%= product.buy_day %></p>
-<p>
-	Quantity: <%= product.quantity %>
-</p>
-<p>
-	Quantity: <%= product.price %>
-</p>
-<% end %>
-<%= link_to "new product", new_product_path %>
-<%= render partial: 'shared/product' %>
+<%= render partial: 'shared/products' %>

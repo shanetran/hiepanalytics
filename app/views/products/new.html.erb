@@ -1,23 +1,4 @@
-<script>
-	$(function() {
-		$("#product_buy_day").datepicker();
-	}); 
-</script>
 <h1>New product</h1>
 <%= form_for :product , url: products_path, method: :post do |f| %>
-<p>
-	Name: <%= f.text_field :name %>
-</p>
-<p>
-	Quantity: <%= f.text_field :quantity %>
-</p>
-<p>
-	Buy Day: <%= f.text_field :buy_day %>
-</p>
-<p>
-	Price: <%= f.text_field :price %>
-</p>
-<p>
-	<%= f.submit :Create %>
-</p>
+<%= render partial: 'form', locals: {f: f} %>
 <% end %>

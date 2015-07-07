@@ -11,7 +11,26 @@ body{
   color: #fff;
   background-image: image-url("background.jpg");
 }
+a{
+  color: #fff;
+  text-decoration: none;
+}
+a:hover{
+  color: #fff;
+  text-decoration: underline;
+}
 #content {
   width: 70%;
   margin: 50px auto;
+}
+.p-link{
+  padding: 20px;
+}
+.a-link{
+  background-color: rgb(0, 100, 150);
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.div-new{
+  margin: 15px 0;
 }

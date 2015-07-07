@@ -1,0 +1,35 @@
+<div class="datagrid">
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Buy Day</th>
+				<th>Quantity</th>
+				<th>Price</th>
+				<th>Total</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% fl = 0 %>
+			<% @products.each do |product| %>
+			<tr class="alt">
+				<td><%= product.id %></td>
+				<td><%= product.name %></td>
+				<td><%= product.buy_day %></td>
+				<td class="quantity"><%= product.quantity %></td>
+				<td class="price"><%= product.price %></td>
+				<td class="total"><%= product.quantity * product.price %></td>
+				<% fl += product.quantity * product.price %>
+				<td> <%= link_to image_tag("edit.png"), edit_product_path(product.id) %>
+				&nbsp;&nbsp;&nbsp;
+				<%= link_to image_tag("delete.png"), product_path(product.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<p style="background-color: rgb(0, 95, 142); padding: 5px; width: 100%;">
+		Total Amount: <%= fl %>
+	</p>
+</div>
