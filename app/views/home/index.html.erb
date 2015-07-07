@@ -7,5 +7,9 @@
 <p>
 	Quantity: <%= product.quantity %>
 </p>
+<p>
+	Quantity: <%= product.price %>
+</p>
 <% end %>
 <%= link_to "new product", new_product_path %>
+<%= render partial: 'shared/product' %>
