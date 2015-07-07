@@ -1,4 +1,10 @@
 <h1>Hello Index</h1>
 <% @products.each do |product| %>
-Name: <%= product.name %>
+<p>
+	Name: <%= product.name %>
+</p>
+<p>
+	Quantity<%= product.quantity %>
+</p>
 <% end %>
+<%= link_to "new product", new_product_path %>
