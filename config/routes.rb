@@ -4,7 +4,15 @@ Rails.application.routes.draw do
 
   get 'home/index'
   root to: 'home#index'
-  resources :products
+  resources :products do
+    collection do
+      get '/search', to: 'products#search'
+    end
+  end
+  match '/404', to: 'errors#file_not_found', via: :all
+  match '/422', to: 'errors#unprocessable', via: :all
+  match '/500', to: 'errors#internal_server_error', via: :all
+
 # The priority is based upon order of creation: first created -> highest priority.
 # See how all your routes lay out with "rake routes".
 

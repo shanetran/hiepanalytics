@@ -9,3 +9,6 @@
 User.create!(email: 'tranhiep92@gmail.com', 
              password: 'tranduchiep', 
              password_confirmation: 'tranduchiep')
+User.create!(email: 'hongtham.tran90@gmail.com', 
+             password: 'tranthihongtham', 
+             password_confirmation: 'tranthihongtham')

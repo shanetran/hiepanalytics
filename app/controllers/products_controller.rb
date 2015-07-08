@@ -3,6 +3,12 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def search
+    search_day_from = params[:search_day_from]
+    search_day_to = params[:search_day_to]
+    @products = Product.search_day_ranger(search_day_from, search_day_to)
+  end
+
   def new
     @product = Product.new
   end

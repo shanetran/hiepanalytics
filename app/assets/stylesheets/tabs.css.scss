@@ -1,0 +1,12 @@
+.ui-widget-header{
+  background: #006699 !important;
+}
+.ui-widget-content{
+  background: #E1EEF4 !important;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+   background: #006699 !important;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{
+  background: #E1EEF4 !important;
+}
