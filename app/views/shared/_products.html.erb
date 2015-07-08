@@ -17,7 +17,7 @@
 			<tr class="alt">
 				<td><%= product.id %></td>
 				<td><%= product.name %></td>
-				<td><%= product.buy_day %></td>
+				<td><%= DateTime.parse(product.buy_day.to_s).strftime("%d/%m/%Y") %></td>
 				<td class="quantity"><%= product.quantity %></td>
 				<td class="price"><%= product.price %></td>
 				<td class="total"><%= product.quantity * product.price %></td>
