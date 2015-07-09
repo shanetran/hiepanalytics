@@ -1,0 +1,4 @@
+<h1>Tạo mới mặt hàng</h1>
+<%= form_for :sale , url: sales_path, method: :post do |f| %>
+<%= render partial: 'form', locals: {f: f} %>
+<% end %>

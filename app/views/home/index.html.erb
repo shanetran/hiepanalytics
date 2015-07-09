@@ -1,42 +1,62 @@
 <div id="tabs">
 	<ul>
 		<li>
-			<a href="#tabs-1">Nunc tincidunt</a>
+			<a href="#tabs-1">Chi Tiêu Gia Đình</a>
 		</li>
 		<li>
-			<a href="#tabs-2">Proin dolor</a>
+			<a href="#tabs-2">Doanh Thu Bán Hàng</a>
 		</li>
 	</ul>
 	<div id="tabs-1">
 		<p class="p-link">
 			<%= form_tag search_products_path, method: :get do %>
-			From: <%= text_field_tag :search_day_from, nil, class: 'search-day' %>
+			Từ: <%= text_field_tag :search_day_from, params[:search_day_from], class: 'search-day' %>
 			<br />
-			To: <%= text_field_tag :search_day_to, nil, class: 'search-day' %>
+			Đến: <%= text_field_tag :search_day_to, params[:search_day_to], class: 'search-day' %>
 			<br />
-			<%= submit_tag :Search %>
+			<%= submit_tag :Tìm %>
 			<% end %>
 		</p>
-		<script>
-			$(function() {
-				$('.search-day').datepicker({
-					dateFormat : 'dd-mm-yy'
-				}).val();
-			});
-		</script>
 		<p class="p-link">
-			<%= link_to "New product", new_product_path, class: "a-link" %>
+			<%= link_to "Tạo mới mặt hàng", new_product_path, class: "a-link" %>
 		</p>
 		<%= render partial: 'shared/products' %>
 	</div>
+
 	<div id="tabs-2">
-		<p>
-			Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.
+		<p class="p-link">
+			<%= form_tag search_sales_path, method: :get do %>
+			Từ: <%= text_field_tag :search_sales_day_from, params[:search_sales_day_from], class: 'search-day' %>
+			<br />
+			Đến: <%= text_field_tag :search_sales_day_to, params[:search_sales_day_to], class: 'search-day' %>
+			<br />
+			<%= submit_tag :Tìm %>
+			<% end %>
 		</p>
+		<p class="p-link">
+			<%= link_to "New Sales", new_sale_path, class: "a-link" %>
+		</p>
+		<%= render partial: 'shared/sales' %>
 	</div>
 </div>
 <script>
 	$(function() {
-		$("#tabs").tabs();
+		var tabCookieName = "tabs";
+		$("#tabs").tabs({
+			active : ($.cookie(tabCookieName) || 0),
+			activate : function(event, ui) {
+				var newIndex = ui.newTab.parent().children().index(ui.newTab);
+				$.cookie(tabCookieName, newIndex, {
+					expires : 1
+				});
+			}
+		});
+	}); 
+</script>
+<script>
+	$(function() {
+		$('.search-day').datepicker({
+			dateFormat : 'dd-mm-yy'
+		}).val();
 	}); 
 </script>

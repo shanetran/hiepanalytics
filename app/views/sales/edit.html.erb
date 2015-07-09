@@ -1,0 +1,4 @@
+<h1>Chỉnh Sửa Mặt Hàng Bán</h1>
+<%= form_for :sale , url: sale_path(@sale), method: :patch do |f| %>
+<%= render partial: 'form', locals: {f: f} %>
+<% end %>

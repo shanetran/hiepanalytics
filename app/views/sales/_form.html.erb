@@ -1,17 +1,9 @@
 <div class="div-new">
 	<p>
-		Tên Sản Phẩm:
+		Ngày Bán:
 	</p>
 	<p>
-		<%= f.text_field :name %>
-	</p>
-</div>
-<div class="div-new">
-	<p>
-		Ngày Mua:
-	</p>
-	<p>
-		<%= f.date_select :buy_day,
+		<%= f.date_select :sale_day,
     {:order => [:day, :month, :year],
       :start_year => 2014,
       :end_year => Time.now.year},
@@ -23,10 +15,10 @@
 		Số Lượng:
 	</p>
 	<p>
-		<% if @product.buy_day %>
-		<%= f.number_field :quantity, min: 1, max: 20 %>
+		<% if @sale.sale_day %>
+		<%= f.number_field :quantity, min: 1, max: 50 %>
 		<% else %>
-		<%= f.number_field :quantity, min: 1, max: 20, value: 1 %>
+		<%= f.number_field :quantity, min: 1, max: 50, value: 1 %>
 		<% end %>
 	</p>
 </div>
@@ -36,6 +28,14 @@
 	</p>
 	<p>
 		<%= f.text_field :price %>
+	</p>
+</div>
+<div class="div-new">
+	<p>
+		Tiền Vốn:
+	</p>
+	<p>
+		<%= f.text_field :capital %>
 	</p>
 </div>
 <div class="div-new">

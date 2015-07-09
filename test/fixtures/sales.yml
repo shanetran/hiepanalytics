@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sale_day: 2015-07-09
+  quantity: 1.5
+  price: 1.5
+  capital: 1.5
+  earn: 1.5
+
+two:
+  sale_day: 2015-07-09
+  quantity: 1.5
+  price: 1.5
+  capital: 1.5
+  earn: 1.5

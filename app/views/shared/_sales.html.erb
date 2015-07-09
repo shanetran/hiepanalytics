@@ -1,0 +1,35 @@
+<div class="datagrid">
+	<table>
+		<thead>
+			<tr>
+				<th>Mã Số</th>
+				<th>Ngày Bán</th>
+				<th>Số Lượng</th>
+				<th>Giá Tiền</th>
+				<th>Tiền Vốn</th>
+				<th>Tiền Lãi</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% fl = 0 %>
+			<% @sales.each do |sale| %>
+			<tr class="alt">
+				<td><%= sale.id %></td>
+				<td><%= DateTime.parse(sale.sale_day.to_s).strftime("%d/%m/%Y") %></td>
+				<td class="quantity"><%= sale.quantity %></td>
+				<td class="price"><%= sale.price %></td>
+				<td class="capital"><%= sale.capital %></td>
+				<td class="earn"><%= (sale.quantity * sale.price) - sale.capital %></td>
+				<% fl += (sale.quantity * sale.price) - sale.capital %>
+				<td> <%= link_to image_tag("edit.png"), edit_sale_path(sale.id) %>
+				&nbsp;&nbsp;&nbsp;
+				<%= link_to image_tag("delete.png"), sale_path(sale.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<p style="background-color: rgb(0, 95, 142); padding: 15px 0; color: #fff; font-size: 1.3em; width: 100%;">
+		Tổng Tiền Lãi: <%= fl %>
+	</p>
+</div>

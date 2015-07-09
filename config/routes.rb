@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'products/index'
-
-  get 'home/index'
   root to: 'home#index'
   resources :products do
     collection do
       get '/search', to: 'products#search'
+    end
+  end
+  resources :sales do
+    collection do
+      get '/search', to: 'sales#search'
     end
   end
   match '/404', to: 'errors#file_not_found', via: :all
