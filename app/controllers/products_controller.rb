@@ -1,13 +1,13 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @products = Product.page(params[:page]).per(2)
   end
 
   def search
     search_day_from = params[:search_day_from]
     search_day_to = params[:search_day_to]
-    @products = Product.search_day_ranger(search_day_from, search_day_to)
-    @sales = Sale.all
+    @products = Product.search_day_ranger(search_day_from, search_day_to).page(params[:page]).per(2)
+    @sales = Sale.page(params[:page]).per(2)
   end
 
   def new

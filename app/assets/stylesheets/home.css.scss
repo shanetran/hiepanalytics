@@ -35,3 +35,15 @@ a:hover{
 .div-new{
   margin: 15px 0;
 }
+.pagination{
+  padding: 10px 0;
+}
+.pagination .page{
+  padding: 0 10px;
+  color: rgb(0, 95, 142) !important;
+}
+.pagination .current{
+  color: #909090;
+  text-decoration: underline;
+  
+}

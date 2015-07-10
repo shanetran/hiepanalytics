@@ -29,6 +29,7 @@ gem 'rails_12factor', group: :production
 gem 'jquery-ui-rails'
 gem 'devise'
 gem 'jquery-cookie-rails'
+gem 'kaminari'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,0 +1,9 @@
+<div id="header">
+	<% if user_signed_in? %>
+	<p style="margin: 10px 0; color: rgb(255, 0, 232);">
+		<%= image_tag("welcome.png")%>
+		Xin Chào: <%= current_user.email %>
+		(<%= link_to "Đăng Xuất", destroy_user_session_path, :method => :delete  %>)
+	</p>
+	<% end %>
+</div>
