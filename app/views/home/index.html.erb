@@ -14,7 +14,7 @@
 			<br />
 			Đến: <%= text_field_tag :search_day_to, params[:search_day_to], class: 'search-day' %>
 			<br />
-			<%= submit_tag :Tìm %>
+			<%= submit_tag :Tìm, id: "btn-product-search" %>
 			<% end %>
 		</p>
 		<p class="p-link">
@@ -23,7 +23,9 @@
 		<div id="product-dialog" title="Basic dialog" style="display: none;">
 			<%= render partial: 'shared/product_dialog' %>
 		</div>
-		<%= render partial: 'shared/products' %>
+		<div id="product-main">
+			<%= render partial: 'shared/products' %>
+		</div>
 	</div>
 
 	<div id="tabs-2">
@@ -33,7 +35,7 @@
 			<br />
 			Đến: <%= text_field_tag :search_sales_day_to, params[:search_sales_day_to], class: 'search-day' %>
 			<br />
-			<%= submit_tag :Tìm %>
+			<%= submit_tag :Tìm, id: "btn-sale-search" %>
 			<% end %>
 		</p>
 		<p class="p-link">
@@ -42,7 +44,9 @@
 		<div id="sale-dialog" title="Basic dialog" style="display: none;">
 			<%= render partial: 'shared/sale_dialog' %>
 		</div>
-		<%= render partial: 'shared/sales' %>
+		<div id="sale-main">
+			<%= render partial: 'shared/sales' %>
+		</div>
 	</div>
 </div>
 <script>

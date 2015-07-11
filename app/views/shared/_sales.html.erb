@@ -24,7 +24,7 @@
 				<% fl += (sale.quantity * sale.price) - sale.capital %>
 				<td> <%= link_to image_tag("edit.png"), edit_sale_path(sale.id) %>
 				&nbsp;&nbsp;&nbsp;
-				<%= link_to image_tag("delete.png"), sale_path(sale.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<%= link_to image_tag("delete.png"), sale_path(sale.id), method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %></td>
 			</tr>
 			<% end %>
 		</tbody>

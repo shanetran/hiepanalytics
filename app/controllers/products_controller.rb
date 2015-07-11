@@ -36,10 +36,23 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    if Product.find(params[:id]).destroy
-      redirect_to root_path, :flash => { :success => "Sản phẩm đã xoá thành công." }
+    Product.find(params[:id]).destroy
+    if @products = Product.page(params[:page]).per(10)
+      respond_to do |format|
+        flash[:success] = "Sản phẩm đã xoá thành công."
+        format.html {
+          redirect_to root_path, :flash => { :success => "Sản phẩm đã xoá thành công." }
+        }
+        format.js {}
+      end
     else
-      redirect_to root_path, :flash => { :error => "Sản phẩm xoá không thành công." }
+      respond_to do |format|
+        flash[:error] = "Sản phẩm xoá không thành công."
+        format.html {
+          redirect_to root_path, :flash => { :error => "Sản phẩm xoá không thành công." }
+        }
+        format.js {}
+      end
     end
   end
 
