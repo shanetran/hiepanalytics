@@ -18,8 +18,11 @@
 			<% end %>
 		</p>
 		<p class="p-link">
-			<%= link_to "Tạo mới mặt hàng", new_product_path, class: "a-link" %>
+			<%= link_to "Tạo mới mặt hàng", new_product_path, class: "a-link product-popup" %>
 		</p>
+		<div id="product-dialog" title="Basic dialog" style="display: none;">
+			<%= render partial: 'shared/product_dialog' %>
+		</div>
 		<%= render partial: 'shared/products' %>
 	</div>
 
@@ -34,8 +37,11 @@
 			<% end %>
 		</p>
 		<p class="p-link">
-			<%= link_to "Tạo Sản Phẩm Bán", new_sale_path, class: "a-link" %>
+			<%= link_to "Tạo Sản Phẩm Bán", new_sale_path, class: "a-link sale-popup" %>
 		</p>
+		<div id="sale-dialog" title="Basic dialog" style="display: none;">
+			<%= render partial: 'shared/sale_dialog' %>
+		</div>
 		<%= render partial: 'shared/sales' %>
 	</div>
 </div>

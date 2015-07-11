@@ -1,0 +1,44 @@
+<h1>Tạo mới mặt hàng</h1>
+<%= form_for :sale , url: sales_path, method: :post do |f| %>
+<div class="div-new">
+	<p>
+		Ngày Bán:
+	</p>
+	<p>
+		<%= f.date_select :sale_day,
+    {:order => [:day, :month, :year],
+      :start_year => 2014,
+      :end_year => Time.now.year},
+    {:class => "select-year"}%>
+	</p>
+</div>
+<div class="div-new">
+	<p>
+		Số Lượng:
+	</p>
+	<p>
+		<%= f.number_field :quantity, min: 1, max: 50, value: 1 %>
+	</p>
+</div>
+<div class="div-new">
+	<p>
+		Giá Tiền:
+	</p>
+	<p>
+		<%= f.text_field :price %>
+	</p>
+</div>
+<div class="div-new">
+	<p>
+		Tiền Vốn:
+	</p>
+	<p>
+		<%= f.text_field :capital %>
+	</p>
+</div>
+<div class="div-new">
+	<%= f.submit 'Lưu Sản Phẩm' %>
+	<%= link_to "Trở Về", root_path, class: "link-button" %>
+</div>
+
+<% end %>
